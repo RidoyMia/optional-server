@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 var cors = require('cors')
-const port = process.env.PORT || 9000
+const port = process.env.PORT || 8000
 app.use(cors())
 app.use(express.json())
 
@@ -20,43 +20,8 @@ async function run(){
       const result = await cursor.toArray();
       res.send(result)
     })
-    // app.put('/order/ami',async(req,res)=>{
-    //   const booked = req.body;
-    //   console.log(booked,'booked')
-    //   const query = {_id : booked._id,email : booked.email,name : booked.name};
-    //   const movie = await OrderCollection.findOne(query);
-    //   const options = { upsert: true };
-    //   if(movie){
-       
-    //     const updateDoc = {
-    //       $set: {
-    //         // name : booked.name,
-    //         // email : booked.email,
-    //         // quantity : movie.quantity + booked.quantity,
-    //         // catagory : booked.catagory,
-    //         booked
-    //       },
-    //     };
-    //     const result = await OrderCollection.updateOne(query, updateDoc, options);
-    //     res.send(result)
-
-    //   }
-    //   else{
-    //     const updateDoc = {
-    //       $set: {
-    //         // name : booked.name,
-    //         // email : booked.email,
-    //         // quantity : booked.quantity,
-    //         // catagory : booked.catagory,
-    //         booked
-    //       },
-    //     };
-    //     const result = await OrderCollection.updateOne(query, updateDoc, options);
-    //     res.send(result)
-
-    //   }
-    // })
-
+   
+//
 
     app.put('/order/:name',async(req,res)=>{
       const name = req.params.name;
